@@ -1,9 +1,9 @@
 const buzova='jagodica.mp3';
 let b=document.querySelector("#Bib");
 
-console.log("Bstart1");
+//console.log("Bstart1");
 b.onclick=()=>{
-  console.log("Bstart");
+
   let cont=new AudioContext();
   let arr=cont.createBufferSource();
 
@@ -21,7 +21,7 @@ b.onclick=()=>{
     arr.connect(cont.destination);
     arr.playbackRate.value=1.5;
     arr.start();
-
+    console.log(buzova+" started");
 
   },600);
 
