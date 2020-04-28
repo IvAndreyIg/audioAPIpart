@@ -64,6 +64,7 @@ let BlockPos=0;
   arr.playbackRate.value = 0.5;
   arr.start();
   console.log(buzova + " started");
+  console.log("allonahui");
 }
 b.onclick=()=>{
 
