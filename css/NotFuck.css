@@ -1,0 +1,38 @@
+/*
+.button-menu {
+  display:flex;
+  padding:0;
+  margin:0;
+  border:0;
+  border-radius:40px;
+  background-color:#7b82ec;
+  overflow:hidden;
+}
+.button-label {
+  line-height:40px;
+  text-transform:uppercase;
+  color:white;
+  margin:0 5px;
+  font-size:20px;
+}*/
+
+.headBoxArr{
+  max-width: 1000px;
+  width: 500px;
+  min-width: 100px;
+position: absolute;
+  left: 16px;
+
+}
+#ko{
+  border:2px solid black;
+  width:1000px;
+  height:600px;
+  margin-left:30px;
+
+}
+.headArr{
+left: 15px;
+  position: relative;
+}
+
