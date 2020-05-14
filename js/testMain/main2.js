@@ -21,22 +21,13 @@ let bb;
 //console.log("Bstart1");
 let shifter;
  let gainNode;
- let topPath=document.querySelector(".topPath");
 
 let cont;
 console.log("shiftre:");
 
 bs.onclick=function stop(){
   shifter.disconnect(gainNode);
-  console.log("work");
-  console.log(topPath.getAttribute('d'));
 
-  topPath.setAttribute('d',"");
-  console.log(topPath.getAttribute('d'));
-  for (let i=0;i<10;i++){
-    console.log(Math.floor(Math.random()*(10-3)+3));
-  }
- // document.querySelector(".topPath").getAttribute('d');
 };
 
 
@@ -81,50 +72,48 @@ function start(cont,buffer) {
 
     ctx.lineCap="round";
   //кофф блока
-  let lenthCoff=36
-  let lineCoff=4;
+  let lenthCoff=32;
   ctx.lineWidth=8;
   //размер блока
 let blocksSize=Math.floor(DataChen[0].length/Math.round(buffer.duration*lenthCoff));
 //  console.log(`Blocks:${blocksSize}`);
   //420-min
 //7-sec
-let tempY;
+
   console.log(`len:${Math.floor(buffer.duration)*lenthCoff}`)
 let BlockPos=0;
-  let topPathStr="m0 150";
-  for(let i=0;i<Math.floor(buffer.duration)*lenthCoff*1;i+=1){
+  for(let i=0;i<Math.floor(buffer.duration)*lenthCoff;i+=1){
     BlockPos+=blocksSize
 
    // if(i>300){
       //ctx.strokeStyle="blue";
    // }
-    for(let j=0;j</*buffer.numberOfChannels*/1;j++){
-      tempY=(150-(DataChen[j][(BlockPos)]
-        +DataChen[j][BlockPos+1]
-        +DataChen[j][BlockPos+2]
-        +DataChen[j][BlockPos+3]
-        +DataChen[j][BlockPos+4])/5
-
-        *100).toFixed(0);
-      if(tempY>150){
-      topPathStr+=(" L "+`${i+10}`+" "+`${tempY}`);
-    }
-
+    for(let j=0;j<buffer.numberOfChannels;j++){
       ctx.strokeStyle=Colours[j];
       ctx.beginPath();
     ctx.moveTo(i+10,150);
+    ctx.lineTo(i+10,150-
 
-    ctx.lineTo(i+10,tempY);
+
+      (DataChen[j][(BlockPos)]
+      +DataChen[j][BlockPos+1]
+      +DataChen[j][BlockPos+2]
+      +DataChen[j][BlockPos+3]
+      +DataChen[j][BlockPos+4])/5
+
+      *100);
     ctx.stroke();
     }
   }
-  topPathStr+="z";
-  console.log("topPathStr:"+topPathStr);
-  topPath.setAttribute('d',topPathStr);
   let Head=15;
   shifter.on('play', (detail) => {
+    // redHead.style.left;
 
+    //console.log(detail.formattedTimePlayed);
+    //console.log(detail.percentagePlayed);
+    // console.log("playe:"+);
+    // shifter.timePlayed
+    //  progressMeter.value = detail.percentagePlayed;
     redHead.style.left=(Head+lenthCoff*shifter.timePlayed/6)+"px";
     console.log(shifter.timePlayed);
     console.log(redHead.style.left)

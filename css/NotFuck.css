@@ -35,4 +35,7 @@ position: absolute;
 left: 15px;
   position: relative;
 }
-
+.ekvBox{
+  width:1000px;
+  height:600px;
+}
